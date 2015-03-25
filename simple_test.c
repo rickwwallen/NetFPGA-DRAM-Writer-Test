@@ -48,6 +48,7 @@ int main()
 {
 
 	unsigned value;
+	unsigned *loc;
 	unsigned *vp;
 	unsigned temps;
 	char key;
@@ -80,8 +81,10 @@ int main()
 	if(vp == NULL)
 		printf("VP: NULL\n");
 
-	value = (unsigned) 0 <<24 | key;
-	printf("Value: %08X \n", value);
+	//value = (unsigned) 0 <<24 | key;
+	value = 97;
+	printf("Value dec: %d \n", value);
+	printf("Value NULL: %08X \n", value);
 	memcpy(&keys, &value, sizeof(unsigned));
 	printf("Key 1:\t%c\n",keys[0]);
 	printf("Key 2:\t%c\n",keys[1]);
@@ -96,8 +99,10 @@ int main()
 
 
 	temps = (unsigned) htons(b) <<16 | htons(a);
-	value = temps;
+	//value = temps;
+	value = 773247492;
 	ts = (struct two_sixteens*) &value;
+	printf("Value dec: %d \n", value);
 	printf("Value: %08X \n", value);
 	printf("one:\t%u\n", ts->one);
 	printf("two:\t%u\n", ts->two);
